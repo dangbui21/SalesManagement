@@ -1,0 +1,11 @@
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\bin\Debug\net8.0\OrderService.Domain.deps.json
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\bin\Debug\net8.0\OrderService.Domain.dll
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\bin\Debug\net8.0\OrderService.Domain.pdb
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\OrderService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\OrderService.Domain.AssemblyInfoInputs.cache
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\OrderService.Domain.AssemblyInfo.cs
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\OrderService.Domain.csproj.CoreCompileInputs.cache
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\OrderService.Domain.dll
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\refint\OrderService.Domain.dll
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\OrderService.Domain.pdb
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\ref\OrderService.Domain.dll
