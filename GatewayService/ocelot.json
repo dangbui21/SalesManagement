@@ -1,0 +1,43 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/orders",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/orders",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/payments",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "paymentservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/payments",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/reports",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "reportservice",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/reports",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8000"
+  }
+}

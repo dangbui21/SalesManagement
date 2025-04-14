@@ -1,0 +1,69 @@
+version: '3.8'
+services:
+  orderservice:
+    build: ./OrderService
+    ports:
+      - "5001:80"
+    depends_on:
+      - rabbitmq
+      - postgres_order
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  paymentservice:
+    build: ./PaymentService
+    ports:
+      - "5002:80"
+    depends_on:
+      - rabbitmq
+      - postgres_payment
+
+  reportservice:
+    build: ./ReportService
+    ports:
+      - "5003:80"
+    depends_on:
+      - rabbitmq
+      - postgres_report
+
+  gatewayservice:
+    build: ./gatewayservice
+    ports:
+      - "8000:80"
+    depends_on:
+      - orderservice
+      - paymentservice
+      - reportservice
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  postgres_order:
+    image: postgres
+    environment:
+      POSTGRES_DB: orders
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5433:5432"
+
+  postgres_payment:
+    image: postgres
+    environment:
+      POSTGRES_DB: payments
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+    ports:
+      - "5434:5432"
+
+  postgres_report:
+    image: postgres
+    environment:
+      POSTGRES_DB: reports
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: 123456
+    ports:
+      - "5435:5432"

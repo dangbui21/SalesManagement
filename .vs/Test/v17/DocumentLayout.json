@@ -1,0 +1,308 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Workspace\\VNPT\\Test\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Domain\\Entities\\OrderItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OrderService\\OrderService.Domain\\Entities\\OrderItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Domain\\Entities\\OrderEvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OrderService\\OrderService.Domain\\Entities\\OrderEvent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Domain\\Entities\\Order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OrderService\\OrderService.Domain\\Entities\\Order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OrderService\\OrderService.Api\\Program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Api\\OrderService.Api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OrderService\\OrderService.Api\\OrderService.Api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\PaymentService\\PaymentService.Api\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PaymentService\\PaymentService.Api\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Api\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:OrderService\\OrderService.Api\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\GatewayService\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GatewayService\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\GatewayService\\GatewayService.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GatewayService\\GatewayService.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\GatewayService\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:GatewayService\\ocelot.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\ReportService\\ReportService.Api\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ReportService\\ReportService.Api\\Dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\ReportService\\ReportService.Domain\\Entities\\ReportOrderItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ReportService\\ReportService.Domain\\Entities\\ReportOrderItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\ReportService\\ReportService.Domain\\Entities\\ReportOrder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ReportService\\ReportService.Domain\\Entities\\ReportOrder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\PaymentService\\PaymentService.Domain\\Entities\\PaymentEven.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PaymentService\\PaymentService.Domain\\Entities\\PaymentEven.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Workspace\\VNPT\\Test\\PaymentService\\PaymentService.Domain\\Entities\\Payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PaymentService\\PaymentService.Domain\\Entities\\Payment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Api\\Program.cs",
+              "RelativeDocumentMoniker": "OrderService\\OrderService.Api\\Program.cs",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Api\\Program.cs",
+              "RelativeToolTip": "OrderService\\OrderService.Api\\Program.cs",
+              "ViewState": "AQIAACcAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T04:11:49.672Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "OrderService.Api.csproj",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Api\\OrderService.Api.csproj",
+              "RelativeDocumentMoniker": "OrderService\\OrderService.Api\\OrderService.Api.csproj",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Api\\OrderService.Api.csproj",
+              "RelativeToolTip": "OrderService\\OrderService.Api\\OrderService.Api.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-11T04:11:44.232Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\PaymentService\\PaymentService.Api\\Dockerfile",
+              "RelativeDocumentMoniker": "PaymentService\\PaymentService.Api\\Dockerfile",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\PaymentService\\PaymentService.Api\\Dockerfile",
+              "RelativeToolTip": "PaymentService\\PaymentService.Api\\Dockerfile",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-11T04:01:07.761Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Order.cs",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Domain\\Entities\\Order.cs",
+              "RelativeDocumentMoniker": "OrderService\\OrderService.Domain\\Entities\\Order.cs",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Domain\\Entities\\Order.cs",
+              "RelativeToolTip": "OrderService\\OrderService.Domain\\Entities\\Order.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T03:33:32.562Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "OrderEvent.cs",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Domain\\Entities\\OrderEvent.cs",
+              "RelativeDocumentMoniker": "OrderService\\OrderService.Domain\\Entities\\OrderEvent.cs",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Domain\\Entities\\OrderEvent.cs",
+              "RelativeToolTip": "OrderService\\OrderService.Domain\\Entities\\OrderEvent.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T03:35:18.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderItem.cs",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Domain\\Entities\\OrderItem.cs",
+              "RelativeDocumentMoniker": "OrderService\\OrderService.Domain\\Entities\\OrderItem.cs",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Domain\\Entities\\OrderItem.cs",
+              "RelativeToolTip": "OrderService\\OrderService.Domain\\Entities\\OrderItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T03:35:31.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AQIAADAAAAAAAAAAAAAAAEQAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-04-11T03:52:10.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Api\\Dockerfile",
+              "RelativeDocumentMoniker": "OrderService\\OrderService.Api\\Dockerfile",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\OrderService\\OrderService.Api\\Dockerfile",
+              "RelativeToolTip": "OrderService\\OrderService.Api\\Dockerfile",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-11T03:57:20.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\GatewayService\\Dockerfile",
+              "RelativeDocumentMoniker": "GatewayService\\Dockerfile",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\GatewayService\\Dockerfile",
+              "RelativeToolTip": "GatewayService\\Dockerfile",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-11T04:05:45.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GatewayService.csproj",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\GatewayService\\GatewayService.csproj",
+              "RelativeDocumentMoniker": "GatewayService\\GatewayService.csproj",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\GatewayService\\GatewayService.csproj",
+              "RelativeToolTip": "GatewayService\\GatewayService.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-11T04:05:43.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\ReportService\\ReportService.Api\\Dockerfile",
+              "RelativeDocumentMoniker": "ReportService\\ReportService.Api\\Dockerfile",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\ReportService\\ReportService.Api\\Dockerfile",
+              "RelativeToolTip": "ReportService\\ReportService.Api\\Dockerfile",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-04-11T04:01:36.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ocelot.json",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\GatewayService\\ocelot.json",
+              "RelativeDocumentMoniker": "GatewayService\\ocelot.json",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\GatewayService\\ocelot.json",
+              "RelativeToolTip": "GatewayService\\ocelot.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-11T03:48:49.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ReportOrder.cs",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\ReportService\\ReportService.Domain\\Entities\\ReportOrder.cs",
+              "RelativeDocumentMoniker": "ReportService\\ReportService.Domain\\Entities\\ReportOrder.cs",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\ReportService\\ReportService.Domain\\Entities\\ReportOrder.cs",
+              "RelativeToolTip": "ReportService\\ReportService.Domain\\Entities\\ReportOrder.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T03:42:12.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PaymentEven.cs",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\PaymentService\\PaymentService.Domain\\Entities\\PaymentEven.cs",
+              "RelativeDocumentMoniker": "PaymentService\\PaymentService.Domain\\Entities\\PaymentEven.cs",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\PaymentService\\PaymentService.Domain\\Entities\\PaymentEven.cs",
+              "RelativeToolTip": "PaymentService\\PaymentService.Domain\\Entities\\PaymentEven.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T03:38:33.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "ReportOrderItem.cs",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\ReportService\\ReportService.Domain\\Entities\\ReportOrderItem.cs",
+              "RelativeDocumentMoniker": "ReportService\\ReportService.Domain\\Entities\\ReportOrderItem.cs",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\ReportService\\ReportService.Domain\\Entities\\ReportOrderItem.cs",
+              "RelativeToolTip": "ReportService\\ReportService.Domain\\Entities\\ReportOrderItem.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T03:36:23.265Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Payment.cs",
+              "DocumentMoniker": "D:\\Workspace\\VNPT\\Test\\PaymentService\\PaymentService.Domain\\Entities\\Payment.cs",
+              "RelativeDocumentMoniker": "PaymentService\\PaymentService.Domain\\Entities\\Payment.cs",
+              "ToolTip": "D:\\Workspace\\VNPT\\Test\\PaymentService\\PaymentService.Domain\\Entities\\Payment.cs",
+              "RelativeToolTip": "PaymentService\\PaymentService.Domain\\Entities\\Payment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-11T03:35:53.663Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

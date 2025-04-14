@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\OrderService",
+    "\\OrderService\\OrderService.Api",
+    "\\OrderService\\OrderService.Domain",
+    "\\OrderService\\OrderService.Domain\\Entities",
+    "\\PaymentService\\PaymentService.Api",
+    "\\PaymentService\\PaymentService.Domain\\Entities",
+    "\\ReportService\\ReportService.Api",
+    "\\ReportService\\ReportService.Domain",
+    "\\ReportService\\ReportService.Domain\\Entities"
+  ],
+  "SelectedNode": "\\OrderService\\OrderService.Api\\Program.cs",
+  "PreviewInSolutionExplorer": false
+}
