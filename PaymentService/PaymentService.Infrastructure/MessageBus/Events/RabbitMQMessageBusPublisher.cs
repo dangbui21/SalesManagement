@@ -26,7 +26,7 @@ namespace PaymentService.Infrastructure.MessageBus
             var hostName = _configuration["RabbitMQ:HostName"];
             var userName = _configuration["RabbitMQ:UserName"];
             var password = _configuration["RabbitMQ:Password"];
-            var queueName = _configuration["RabbitMQ:QueueName"];
+            var queueName = _configuration["RabbitMQ:PublishQueue"];
 
             var factory = new ConnectionFactory()
             {

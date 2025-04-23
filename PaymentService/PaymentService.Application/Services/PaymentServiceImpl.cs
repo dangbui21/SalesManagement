@@ -92,5 +92,31 @@ namespace PaymentService.Application.Services
 
             return true;
         }
+
+        public async Task<bool> SimulatePaymentSuccessAsync(int orderId)
+        {
+            var payments = await _repository.GetPaymentsByOrderIdAsync(orderId);
+            var payment = payments.FirstOrDefault();
+            if (payment == null) return false;
+
+            // Cập nhật trạng thái
+            payment.Status = Domain.Enums.PaymentStatus.Succeeded;
+            payment.ProcessedAt = DateTime.UtcNow;
+
+            await _repository.UpdatePaymentAsync(payment);
+
+            // Gửi event thành công
+            var eventDto = new PaymentSucceededEventDto
+            {
+                PaymentId = payment.Id,
+                OrderId = payment.OrderId,
+                Amount = payment.Amount,
+                PaidAt = payment.ProcessedAt,
+                Status = "Succeeded"
+            };
+            await _messageBus.PublishPaymentSucceededAsync(eventDto);
+
+            return true;
+        }
     }
 }

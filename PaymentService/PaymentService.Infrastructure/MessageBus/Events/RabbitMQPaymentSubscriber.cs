@@ -32,7 +32,7 @@ namespace PaymentService.Infrastructure.MessageBus
             _channel = _connection.CreateModel();
 
             var exchangeName = "payment_exchange";
-            var queueName = _configuration["RabbitMQ:QueueName"];
+            var queueName = _configuration["RabbitMQ:PublishQueue"];
 
             _channel.ExchangeDeclare(exchange: exchangeName, type: ExchangeType.Topic, durable: true);
             _channel.QueueDeclare(queue: queueName, durable: true, exclusive: false, autoDelete: false, arguments: null);
@@ -79,7 +79,7 @@ namespace PaymentService.Infrastructure.MessageBus
             };
 
             _channel.BasicConsume(
-                queue: _configuration["RabbitMQ:QueueName"],
+                queue: _configuration["RabbitMQ:PublishQueue"],
                 autoAck: true,
                 consumer: consumer
             );

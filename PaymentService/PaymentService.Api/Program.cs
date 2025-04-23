@@ -7,6 +7,7 @@ using PaymentService.Application.Interfaces;
 using PaymentService.Application.Services;
 using PaymentService.Infrastructure.MessageBus;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add DbContext
@@ -18,6 +19,8 @@ builder.Services.AddAutoMapper(typeof(PaymentMappingProfile).Assembly);
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<IPaymentService, PaymentServiceImpl>();
 builder.Services.AddScoped<IMessageBusPublisher, RabbitMQMessageBusPublisher>();
+builder.Services.AddHostedService<RabbitMQPaymentSubscriber>();
+builder.Services.AddHostedService<OrderEventSubscriber>();
 
 // Add services, controllers, swagger
 builder.Services.AddControllers();

@@ -44,37 +44,35 @@ namespace PaymentService.Api.Controllers
         }
 
         [HttpPost]
-public async Task<ActionResult> CreatePayment([FromBody] PaymentCreateDto paymentCreateDto)
-{
-    // Tạo thanh toán và lấy ID
-    int newPaymentId = await _paymentService.CreatePaymentAsync(paymentCreateDto);
+        public async Task<ActionResult> CreatePayment([FromBody] PaymentCreateDto paymentCreateDto)
+        {
+            // Tạo thanh toán và lấy ID
+            int newPaymentId = await _paymentService.CreatePaymentAsync(paymentCreateDto);
 
-    // Lấy PaymentDto từ ID vừa tạo
-    var paymentDto = await _paymentService.GetPaymentDtoByIdAsync(newPaymentId);
-    if (paymentDto == null)
-        return NotFound("Không tìm thấy thanh toán vừa tạo.");
+            // Lấy PaymentDto từ ID vừa tạo
+            var paymentDto = await _paymentService.GetPaymentDtoByIdAsync(newPaymentId);
+            if (paymentDto == null)
+                return NotFound("Không tìm thấy thanh toán vừa tạo.");
 
-    // Trả về PaymentDto
-    return CreatedAtAction(nameof(GetPaymentById), new { id = newPaymentId }, paymentDto);
-}
+            // Trả về PaymentDto
+            return CreatedAtAction(nameof(GetPaymentById), new { id = newPaymentId }, paymentDto);
+        }
 
-[HttpPut("{id}")]
-public async Task<IActionResult> UpdatePayment(int id, [FromBody] PaymentUpdateDto paymentUpdateDto)
-{
-    // Cập nhật thanh toán
-    var result = await _paymentService.UpdatePaymentAsync(id, paymentUpdateDto);
-    if (!result)
-        return NotFound("Không tìm thấy thanh toán để cập nhật.");
+        [HttpPut("{id}")]
+        public async Task<IActionResult> UpdatePayment(int id, [FromBody] PaymentUpdateDto paymentUpdateDto)
+        {
+            // Cập nhật thanh toán
+            var result = await _paymentService.UpdatePaymentAsync(id, paymentUpdateDto);
+            if (!result)
+                return NotFound("Không tìm thấy thanh toán để cập nhật.");
 
-    // Lấy PaymentDto sau khi cập nhật
-    var updatedPayment = await _paymentService.GetPaymentDtoByIdAsync(id);
-    if (updatedPayment == null)
-        return NotFound("Không tìm thấy thanh toán sau khi cập nhật.");
+            // Lấy PaymentDto sau khi cập nhật
+            var updatedPayment = await _paymentService.GetPaymentDtoByIdAsync(id);
+            if (updatedPayment == null)
+                return NotFound("Không tìm thấy thanh toán sau khi cập nhật.");
 
-    return Ok(updatedPayment); // Trả về PaymentDto đã được cập nhật
-}
-
-
+            return Ok(updatedPayment); // Trả về PaymentDto đã được cập nhật
+        }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePayment(int id)
@@ -84,6 +82,16 @@ public async Task<IActionResult> UpdatePayment(int id, [FromBody] PaymentUpdateD
                 return NotFound("Không tìm thấy thanh toán để xóa.");
 
             return NoContent();
+        }
+
+        [HttpPost("simulate-payment-success/{orderId}")]
+        public async Task<IActionResult> SimulatePaymentSuccess(int orderId)
+        {
+            var result = await _paymentService.SimulatePaymentSuccessAsync(orderId);
+            if (!result)
+                return NotFound("Không tìm thấy thanh toán để thực hiện thành công.");
+
+            return Ok("Thanh toán thành công và đã gửi event.");
         }
     }
 }

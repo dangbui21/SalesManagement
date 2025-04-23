@@ -7,6 +7,10 @@ using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using PaymentService.Domain.Events;
 using PaymentService.Domain.Interfaces;
+using PaymentService.Application.Interfaces;
+using PaymentService.Application.DTOs;
+using PaymentService.Domain.Enums;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace PaymentService.Infrastructure.MessageBus
 {
@@ -14,35 +18,47 @@ namespace PaymentService.Infrastructure.MessageBus
     {
         private readonly ILogger<OrderEventSubscriber> _logger;
         private readonly IConfiguration _configuration;
-        private readonly IMessageBusPublisher _messageBus;
-        private IConnection _connection;
-        private IModel _channel;
+        private readonly IServiceProvider _serviceProvider;
+        
+        private IConnection? _connection;
+        private IModel? _channel;
 
         public OrderEventSubscriber(
             ILogger<OrderEventSubscriber> logger,
             IConfiguration configuration,
-            IMessageBusPublisher messageBus)
+            IServiceProvider serviceProvider
+         )
         {
             _logger = logger;
             _configuration = configuration;
-            _messageBus = messageBus;
+            _serviceProvider = serviceProvider;
 
-            var factory = new ConnectionFactory
+            try
             {
-                HostName = _configuration["RabbitMQ:HostName"],
-                UserName = _configuration["RabbitMQ:UserName"],
-                Password = _configuration["RabbitMQ:Password"]
-            };
+                var host = _configuration["RabbitMQ:HostName"];
+                var user = _configuration["RabbitMQ:UserName"];
+                var pass = _configuration["RabbitMQ:Password"];
+                var consumeQueue = _configuration["RabbitMQ:ConsumeQueue"];
+                var exchangeName = "order_exchange";
 
-            _connection = factory.CreateConnection();
-            _channel = _connection.CreateModel();
+                var factory = new ConnectionFactory
+                {
+                    HostName = host,
+                    UserName = user,
+                    Password = pass
+                };
 
-            var exchangeName = "order_exchange";
-            var queueName = _configuration["RabbitMQ:PaymentQueue"];
+                _connection = factory.CreateConnection();
+                _channel = _connection.CreateModel();
 
-            _channel.ExchangeDeclare(exchange: exchangeName, type: ExchangeType.Topic, durable: true);
-            _channel.QueueDeclare(queue: queueName, durable: true, exclusive: false, autoDelete: false);
-            _channel.QueueBind(queue: queueName, exchange: exchangeName, routingKey: "order.created");
+                _channel.ExchangeDeclare(exchange: exchangeName, type: ExchangeType.Topic, durable: true);
+                _channel.QueueDeclare(queue: consumeQueue, durable: true, exclusive: false, autoDelete: false);
+                _channel.QueueBind(queue: consumeQueue, exchange: exchangeName, routingKey: "order.#");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error while setting up RabbitMQ connection or declaring exchange/queue");
+            }
         }
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
@@ -50,6 +66,10 @@ namespace PaymentService.Infrastructure.MessageBus
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += async (model, ea) =>
             {
+                using var scope = _serviceProvider.CreateScope();
+                var paymentService = scope.ServiceProvider.GetRequiredService<IPaymentService>();
+                var messageBus = scope.ServiceProvider.GetRequiredService<IMessageBusPublisher>();
+
                 try
                 {
                     var body = ea.Body.ToArray();
@@ -62,39 +82,41 @@ namespace PaymentService.Infrastructure.MessageBus
                     {
                         var orderCreated = JsonSerializer.Deserialize<OrderCreatedEventDto>(message);
 
-                        if (orderCreated == null)
+                        if (orderCreated?.Items == null || !orderCreated.Items.Any())
                         {
-                            _logger.LogWarning("Deserialization returned null for order.created");
+                            _logger.LogWarning("Empty or invalid order items.");
                             return;
                         }
 
-                        var totalAmount = orderCreated.Items.Sum(item => item.Quantity * item.UnitPrice);
-
-                        var paymentEvent = new PaymentSucceededEventDto
+                        var totalAmount = orderCreated.Items.Sum(i => i.Quantity * i.UnitPrice);
+                        var createDto = new PaymentCreateDto
                         {
-                            PaymentId = orderCreated.OrderId, // Giả lập dùng OrderId
                             OrderId = orderCreated.OrderId,
                             Amount = totalAmount,
-                            PaidAt = DateTime.UtcNow,
-                            Status = "Succeeded"
+                            Status = (int)PaymentStatus.Pending
                         };
 
-                        await _messageBus.PublishPaymentSucceededAsync(paymentEvent);
-                        _logger.LogInformation("Published PaymentSucceededEvent: {@PaymentEvent}", paymentEvent);
+                        var newPaymentId = await paymentService.CreatePaymentAsync(createDto);
+                        if (newPaymentId == 0)
+                            _logger.LogWarning("Failed to create payment.");
+                        else
+                            _logger.LogInformation("Created payment for OrderId: {OrderId}, PaymentId: {PaymentId}", orderCreated.OrderId, newPaymentId);
                     }
                 }
                 catch (Exception ex)
                 {
-                    _logger.LogError(ex, "Error while processing received order event");
+                    _logger.LogError(ex, "Error processing message.");
                 }
             };
 
-            _channel.BasicConsume(queue: _configuration["RabbitMQ:PaymentQueue"], autoAck: true, consumer: consumer);
+            _channel.BasicConsume(queue: _configuration["RabbitMQ:ConsumeQueue"], autoAck: true, consumer: consumer);
+
             return Task.CompletedTask;
         }
 
         public override void Dispose()
         {
+            _logger.LogInformation("Disposing resources. Closing RabbitMQ connection and channel.");
             _channel?.Close();
             _connection?.Close();
             base.Dispose();
