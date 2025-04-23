@@ -107,3 +107,4 @@ D:\Workspace\VNPT\Test\OrderService\OrderService.Tests\obj\Debug\net8.0\refint\O
 D:\Workspace\VNPT\Test\OrderService\OrderService.Tests\obj\Debug\net8.0\OrderService.Tests.pdb
 D:\Workspace\VNPT\Test\OrderService\OrderService.Tests\obj\Debug\net8.0\OrderService.Tests.genruntimeconfig.cache
 D:\Workspace\VNPT\Test\OrderService\OrderService.Tests\obj\Debug\net8.0\ref\OrderService.Tests.dll
+D:\Workspace\VNPT\Test\OrderService\OrderService.Tests\obj\Debug\net8.0\OrderService.Tests.sourcelink.json

@@ -13,3 +13,4 @@ D:\Workspace\VNPT\Test\OrderService\OrderService.Application\obj\Debug\net8.0\Or
 D:\Workspace\VNPT\Test\OrderService\OrderService.Application\obj\Debug\net8.0\refint\OrderService.Application.dll
 D:\Workspace\VNPT\Test\OrderService\OrderService.Application\obj\Debug\net8.0\OrderService.Application.pdb
 D:\Workspace\VNPT\Test\OrderService\OrderService.Application\obj\Debug\net8.0\ref\OrderService.Application.dll
+D:\Workspace\VNPT\Test\OrderService\OrderService.Application\obj\Debug\net8.0\OrderService.Application.sourcelink.json

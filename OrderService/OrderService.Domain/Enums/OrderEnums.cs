@@ -2,15 +2,15 @@ namespace OrderService.Domain.Enums
 {
     public enum OrderStatus
     {
-        Pending = 1,
-        Completed = 2,
-        Canceled = 3
+        Pending = 0,
+        Completed = 1,
+        Canceled = 2
     }
 
     public enum EventType
     {
-        OrderCreated = 1,
-        OrderUpdated = 2,
-        OrderCanceled = 3
+        OrderCreated = 0,
+        OrderUpdated = 1,
+        OrderCanceled = 2
     }
 }

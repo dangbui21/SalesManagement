@@ -1,0 +1,16 @@
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\bin\Debug\net8.0\PaymentService.Application.deps.json
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\bin\Debug\net8.0\PaymentService.Application.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\bin\Debug\net8.0\PaymentService.Application.pdb
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\bin\Debug\net8.0\PaymentService.Domain.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\bin\Debug\net8.0\PaymentService.Domain.pdb
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\PaymentService.Application.csproj.AssemblyReference.cache
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\PaymentService.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\PaymentService.Application.AssemblyInfoInputs.cache
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\PaymentService.Application.AssemblyInfo.cs
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\PaymentService.Application.csproj.CoreCompileInputs.cache
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\PaymentService.Application.sourcelink.json
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\PaymentS.03DFC2EE.Up2Date
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\PaymentService.Application.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\refint\PaymentService.Application.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\PaymentService.Application.pdb
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Application\obj\Debug\net8.0\ref\PaymentService.Application.dll

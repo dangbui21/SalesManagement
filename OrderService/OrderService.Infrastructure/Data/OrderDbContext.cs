@@ -1,8 +1,6 @@
 ﻿
 using Microsoft.EntityFrameworkCore;
 using OrderService.Domain.Entities;
-using System.Collections.Generic;
-using System.Reflection.Emit;
 
 namespace OrderService.Infrastructure.Data
 {

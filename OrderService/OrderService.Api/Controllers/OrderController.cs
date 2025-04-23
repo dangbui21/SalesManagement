@@ -5,6 +5,7 @@ using OrderService.Domain.Entities;
 using AutoMapper;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using OrderService.Domain.Interfaces;
 
 namespace OrderService.Api.Controllers
 {

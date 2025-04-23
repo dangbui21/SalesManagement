@@ -14,7 +14,7 @@ namespace OrderService.Application.Mapping
             CreateMap<Order, OrderDto>()
                 .ForMember(dest => dest.Status,
                            opt => opt.MapFrom(src => ((OrderStatus)src.Status).ToString()));
-
+    
             CreateMap<OrderItem, OrderItemDto>();
 
             // DTO -> Entity

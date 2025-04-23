@@ -6,9 +6,7 @@ D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\obj\Debug\net8.0
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\bin\Debug\net8.0\OrderService.Infrastructure.deps.json
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\bin\Debug\net8.0\OrderService.Infrastructure.dll
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\bin\Debug\net8.0\OrderService.Infrastructure.pdb
-D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\bin\Debug\net8.0\OrderService.Application.dll
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\bin\Debug\net8.0\OrderService.Domain.dll
-D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\bin\Debug\net8.0\OrderService.Application.pdb
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\bin\Debug\net8.0\OrderService.Domain.pdb
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\obj\Debug\net8.0\OrderSer.30472D0A.Up2Date
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\obj\Debug\net8.0\OrderService.Infrastructure.dll
@@ -17,3 +15,4 @@ D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\obj\Debug\net8.0
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\obj\Debug\net8.0\ref\OrderService.Infrastructure.dll
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\bin\Debug\net8.0\OrderService.Infrastructure.runtimeconfig.json
 D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\obj\Debug\net8.0\OrderService.Infrastructure.genruntimeconfig.cache
+D:\Workspace\VNPT\Test\OrderService\OrderService.Infrastructure\obj\Debug\net8.0\OrderService.Infrastructure.sourcelink.json

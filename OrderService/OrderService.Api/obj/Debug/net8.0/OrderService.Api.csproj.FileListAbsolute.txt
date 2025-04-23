@@ -147,3 +147,7 @@ D:\Workspace\VNPT\Test\OrderService\OrderService.Api\bin\Debug\net8.0\Microsoft.
 D:\Workspace\VNPT\Test\OrderService\OrderService.Api\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
 D:\Workspace\VNPT\Test\OrderService\OrderService.Api\bin\Debug\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
 D:\Workspace\VNPT\Test\OrderService\OrderService.Api\bin\Debug\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
+D:\Workspace\VNPT\Test\OrderService\OrderService.Api\obj\Debug\net8.0\OrderService.Api.sourcelink.json
+D:\Workspace\VNPT\Test\OrderService\OrderService.Api\bin\Debug\net8.0\RabbitMQ.Client.dll
+D:\Workspace\VNPT\Test\OrderService\OrderService.Api\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+D:\Workspace\VNPT\Test\OrderService\OrderService.Api\bin\Debug\net8.0\Microsoft.Extensions.Hosting.Abstractions.dll

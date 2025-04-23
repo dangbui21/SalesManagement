@@ -9,3 +9,4 @@ D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\OrderSe
 D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\refint\OrderService.Domain.dll
 D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\OrderService.Domain.pdb
 D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\ref\OrderService.Domain.dll
+D:\Workspace\VNPT\Test\OrderService\OrderService.Domain\obj\Debug\net8.0\OrderService.Domain.sourcelink.json
