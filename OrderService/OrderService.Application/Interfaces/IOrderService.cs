@@ -12,7 +12,7 @@ namespace OrderService.Application.Interfaces
         Task<IEnumerable<OrderDto>> GetAllOrderDtosAsync();
         Task<OrderDto?> GetOrderDtoByIdAsync(int id);
         Task<bool> DeleteOrderAsync(int id);
-        Task<bool> UpdateOrderPaymentStatusAsync(int orderId, string status);
+        //Task<bool> UpdateOrderPaymentStatusAsync(int orderId, string status);
 
     }
 }

@@ -19,6 +19,8 @@ builder.Services.AddAutoMapper(typeof(PaymentMappingProfile).Assembly);
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 builder.Services.AddScoped<IPaymentService, PaymentServiceImpl>();
 builder.Services.AddScoped<IMessageBusPublisher, RabbitMQMessageBusPublisher>();
+builder.Services.AddScoped<IPaymentSimulator, PaymentSimulatorService>();
+
 builder.Services.AddHostedService<RabbitMQPaymentSubscriber>();
 builder.Services.AddHostedService<OrderEventSubscriber>();
 

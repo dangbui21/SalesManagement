@@ -158,24 +158,24 @@ namespace OrderService.Application.Services
                 }).ToList(),
                 TotalAmount = order.Items.Sum(item => item.UnitPrice * item.Quantity)
             };
-        }
-        public async Task<bool> UpdateOrderPaymentStatusAsync(int orderId, string status)
-        {
-            var order = await _orderRepository.GetOrderByIdAsync(orderId);
-            if (order == null)
-                return false;
+        // }
+        // public async Task<bool> UpdateOrderPaymentStatusAsync(int orderId, string status)
+        // {
+        //     var order = await _orderRepository.GetOrderByIdAsync(orderId);
+        //     if (order == null)
+        //         return false;
 
-            if (Enum.TryParse(status, out OrderStatus parsedStatus))
-            {
-                order.Status = parsedStatus;
-            }
-            else
-            {
-                // fallback: giả sử status từ Payment là "Succeeded" thì chuyển sang OrderStatus.Paid
-                order.Status = OrderStatus.Completed;
-            }
+        //     if (Enum.TryParse(status, out OrderStatus parsedStatus))
+        //     {
+        //         order.Status = parsedStatus;
+        //     }
+        //     else
+        //     {
+        //         // fallback: giả sử status từ Payment là "Succeeded" thì chuyển sang OrderStatus.Paid
+        //         order.Status = OrderStatus.Completed;
+        //     }
 
-            return await _orderRepository.UpdateOrderAsync(order);
+        //     return await _orderRepository.UpdateOrderAsync(order);
         }
 
 

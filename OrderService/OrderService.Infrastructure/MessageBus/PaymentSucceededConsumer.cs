@@ -1,74 +1,92 @@
-using System.Text;
-using System.Text.Json;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using OrderService.Domain.Events;
+using OrderService.Domain.Interfaces;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using OrderService.Application.Interfaces;
-using OrderService.Domain.Events;
+using System.Text;
+using System.Text.Json;
 
-public class PaymentSucceededConsumer : BackgroundService
+namespace OrderService.Infrastructure.MessageBus
 {
-    private readonly ILogger<PaymentSucceededConsumer> _logger;
-    private readonly IOrderService _orderService;
-    private readonly IConnection _connection;
-    private readonly IModel _channel;
-    private readonly string _queueName = "order_update_queue";
-
-    public PaymentSucceededConsumer(ILogger<PaymentSucceededConsumer> logger, IOrderService orderService, IConfiguration configuration)
+    public class PaymentSucceededConsumer : BackgroundService
     {
-        _logger = logger;
-        _orderService = orderService;
+        private readonly IServiceProvider _serviceProvider;
+        private readonly IConfiguration _configuration;
+        private IConnection? _connection;
+        private IModel _channel;
 
-        var factory = new ConnectionFactory()
+        public PaymentSucceededConsumer(IServiceProvider serviceProvider, IConfiguration configuration)
         {
-            HostName = configuration["RabbitMQ:HostName"],
-            UserName = configuration["RabbitMQ:UserName"],
-            Password = configuration["RabbitMQ:Password"]
-        };
+            _serviceProvider = serviceProvider;
+            _configuration = configuration;
 
-        _connection = factory.CreateConnection();
-        _channel = _connection.CreateModel();
+            var factory = new ConnectionFactory
+            {
+                HostName = _configuration["RabbitMQ:HostName"],
+                UserName = _configuration["RabbitMQ:UserName"],
+                Password = _configuration["RabbitMQ:Password"]
+            };
 
-        // Khai báo queue
-        _channel.QueueDeclare(
-            queue: _queueName,
-            durable: true,
-            exclusive: false,
-            autoDelete: false,
-            arguments: null
-        );
+            _connection = factory.CreateConnection();
+            _channel = _connection.CreateModel();
 
-        // Bind queue với exchange
-        _channel.QueueBind(
-            queue: _queueName,
-            exchange: "payment_exchange",
-            routingKey: "payment.succeeded"
-        );
-    }
+            var queueName = _configuration["RabbitMQ:ConsumeQueue"];
+            var exchangeName = "payment_exchange";
 
-    protected override Task ExecuteAsync(CancellationToken stoppingToken)
-    {
-        var consumer = new EventingBasicConsumer(_channel);
-        consumer.Received += async (model, ea) =>
+            // Declare exchange nếu cần routing mở rộng
+            _channel.ExchangeDeclare(exchange: exchangeName, type: ExchangeType.Topic, durable: true);
+
+            // Khai báo queue và bind với exchange
+            _channel.QueueDeclare(queue: queueName, durable: true, exclusive: false, autoDelete: false);
+            _channel.QueueBind(queue: queueName, exchange: exchangeName, routingKey: "payment.#");
+
+            Console.WriteLine("[Startup] PaymentSucceededConsumer started");
+        }
+
+        protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            var body = ea.Body.ToArray();
-            var message = Encoding.UTF8.GetString(body);
+            var consumer = new EventingBasicConsumer(_channel);
+            consumer.Received += async (model, ea) =>
+            {
+                var body = ea.Body.ToArray();
+                var message = Encoding.UTF8.GetString(body);
+                var routingKey = ea.RoutingKey;
 
-            var paymentEvent = JsonSerializer.Deserialize<PaymentSucceededEventDto>(message);
-            _logger.LogInformation("Received payment.succeeded for OrderId: {OrderId}", paymentEvent.OrderId);
+                // Log nhận được tin nhắn
+                Console.WriteLine($"[Received] RoutingKey: {routingKey}, Message: {message}");
 
-            await _orderService.UpdateOrderPaymentStatusAsync(paymentEvent.OrderId, paymentEvent.Status);
-        };
+                if (routingKey == "payment.succeeded")
+                {
+                    var paymentEvent = JsonSerializer.Deserialize<PaymentSucceededEventDto>(message);
 
-        _channel.BasicConsume(queue: _queueName, autoAck: true, consumer: consumer);
-        return Task.CompletedTask;
-    }
+                    if (paymentEvent != null)
+                    {
+                        // Log trước khi xử lý
+                        Console.WriteLine($"[Handling] OrderId: {paymentEvent.OrderId}");
 
-    public override void Dispose()
-    {
-        _channel.Close();
-        _connection.Close();
-        base.Dispose();
+                        using var scope = _serviceProvider.CreateScope();
+                        var handler = scope.ServiceProvider.GetRequiredService<IHandlePaymentSucceeded>();
+                        await handler.HandleAsync(paymentEvent);
+                    }
+                }
+
+                _channel.BasicAck(ea.DeliveryTag, false);
+            };
+
+            var queueName = _configuration["RabbitMQ:ConsumeQueue"];
+            _channel.BasicConsume(queue: queueName, autoAck: false, consumer: consumer);
+
+            return Task.CompletedTask;
+        }
+
+
+        public override void Dispose()
+        {
+            _channel?.Close();
+            _connection?.Close();
+            base.Dispose();
+        }
     }
 }

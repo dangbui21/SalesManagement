@@ -35,6 +35,8 @@ namespace PaymentService.Infrastructure.MessageBus
 
             try
             {
+                 _logger.LogInformation("Starting to connect to RabbitMQ...");
+
                 var host = _configuration["RabbitMQ:HostName"];
                 var user = _configuration["RabbitMQ:UserName"];
                 var pass = _configuration["RabbitMQ:Password"];
@@ -51,9 +53,13 @@ namespace PaymentService.Infrastructure.MessageBus
                 _connection = factory.CreateConnection();
                 _channel = _connection.CreateModel();
 
+                _logger.LogInformation("RabbitMQ connection and channel created");
+
                 _channel.ExchangeDeclare(exchange: exchangeName, type: ExchangeType.Topic, durable: true);
                 _channel.QueueDeclare(queue: consumeQueue, durable: true, exclusive: false, autoDelete: false);
                 _channel.QueueBind(queue: consumeQueue, exchange: exchangeName, routingKey: "order.#");
+
+                _logger.LogInformation("Exchange and queue declared/bound successfully");
             }
             catch (Exception ex)
             {
@@ -63,11 +69,16 @@ namespace PaymentService.Infrastructure.MessageBus
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
+            if (_channel == null)
+            {
+                _logger.LogError("RabbitMQ channel is null. Cannot consume messages.");
+                return Task.CompletedTask;
+            }
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += async (model, ea) =>
             {
                 using var scope = _serviceProvider.CreateScope();
-                var paymentService = scope.ServiceProvider.GetRequiredService<IPaymentService>();
+                var paymentService = scope.ServiceProvider.GetRequiredService<IPaymentService>();   
                 var messageBus = scope.ServiceProvider.GetRequiredService<IMessageBusPublisher>();
 
                 try
@@ -101,12 +112,19 @@ namespace PaymentService.Infrastructure.MessageBus
                             _logger.LogWarning("Failed to create payment.");
                         else
                             _logger.LogInformation("Created payment for OrderId: {OrderId}, PaymentId: {PaymentId}", orderCreated.OrderId, newPaymentId);
+                            _logger.LogInformation("Waiting for manual payment simulation for OrderId: {OrderId}", orderCreated.OrderId);
                     }
+                    // _channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
                 }
                 catch (Exception ex)
                 {
                     _logger.LogError(ex, "Error processing message.");
                 }
+                // finally
+                // {
+                //     // Đảm bảo luôn gọi BasicAck sau khi đã xử lý message
+                //     _channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false);
+                // }
             };
 
             _channel.BasicConsume(queue: _configuration["RabbitMQ:ConsumeQueue"], autoAck: true, consumer: consumer);

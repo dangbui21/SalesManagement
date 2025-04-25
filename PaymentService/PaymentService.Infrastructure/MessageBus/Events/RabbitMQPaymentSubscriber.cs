@@ -71,6 +71,10 @@ namespace PaymentService.Infrastructure.MessageBus
                         var failed = JsonSerializer.Deserialize<PaymentFailedEventDto>(message);
                         _logger.LogWarning("Payment Failed: {@Payment}", failed);
                         break;
+                    case "payment.succeeded":  
+                        var succeeded = JsonSerializer.Deserialize<PaymentSucceededEventDto>(message);
+                        _logger.LogInformation("Payment Succeeded: {@Payment}", succeeded);
+                        break;
 
                     default:
                         _logger.LogWarning("Unknown Payment RoutingKey: {RoutingKey}", routingKey);

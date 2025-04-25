@@ -24,6 +24,8 @@ builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderServiceImpl>();
 builder.Services.AddScoped<IMessageBusPublisher, RabbitMQMessageBusPublisher>();
 builder.Services.AddHostedService<RabbitMQMessageBusSubscriber>();
+builder.Services.AddScoped<IHandlePaymentSucceeded, HandlePaymentSucceeded>();
+builder.Services.AddHostedService<PaymentSucceededConsumer>();
 
 
 
