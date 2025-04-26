@@ -32,6 +32,12 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// using (var scope = app.Services.CreateScope())
+// {
+//     var db = scope.ServiceProvider.GetRequiredService<PaymentDbContext>();
+//     db.Database.Migrate(); // Tự động tạo bảng nếu chưa có
+// }
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

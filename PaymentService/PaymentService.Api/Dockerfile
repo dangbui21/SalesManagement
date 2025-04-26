@@ -24,4 +24,4 @@ ENV ASPNETCORE_URLS=http://+:80
 ENV ASPNETCORE_ENVIRONMENT=Development
 
 # Chạy ứng dụng
-ENTRYPOINT ["dotnet", "PaymentService.dll"]
+ENTRYPOINT ["dotnet", "PaymentService.Api.dll"]
