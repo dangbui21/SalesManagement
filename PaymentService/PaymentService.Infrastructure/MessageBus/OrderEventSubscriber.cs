@@ -35,7 +35,6 @@ namespace PaymentService.Infrastructure.MessageBus
 
             try
             {
-                 _logger.LogInformation("Starting to connect to RabbitMQ...");
 
                 var host = _configuration["RabbitMQ:HostName"];
                 var user = _configuration["RabbitMQ:UserName"];
@@ -53,13 +52,11 @@ namespace PaymentService.Infrastructure.MessageBus
                 _connection = factory.CreateConnection();
                 _channel = _connection.CreateModel();
 
-                _logger.LogInformation("RabbitMQ connection and channel created");
 
                 _channel.ExchangeDeclare(exchange: exchangeName, type: ExchangeType.Topic, durable: true);
                 _channel.QueueDeclare(queue: consumeQueue, durable: true, exclusive: false, autoDelete: false);
                 _channel.QueueBind(queue: consumeQueue, exchange: exchangeName, routingKey: "order.#");
 
-                _logger.LogInformation("Exchange and queue declared/bound successfully");
             }
             catch (Exception ex)
             {
@@ -69,11 +66,11 @@ namespace PaymentService.Infrastructure.MessageBus
 
         protected override Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            if (_channel == null)
-            {
-                _logger.LogError("RabbitMQ channel is null. Cannot consume messages.");
-                return Task.CompletedTask;
-            }
+            // if (_channel == null)
+            // {
+            //     _logger.LogError("RabbitMQ channel is null. Cannot consume messages.");
+            //     return Task.CompletedTask;
+            // }
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += async (model, ea) =>
             {

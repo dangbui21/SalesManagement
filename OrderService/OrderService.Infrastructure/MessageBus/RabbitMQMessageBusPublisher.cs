@@ -74,6 +74,9 @@ namespace OrderService.Infrastructure.MessageBus
         public Task PublishOrderDeletedAsync(OrderDeletedEventDto orderEvent)
             => PublishAsync("order.deleted", JsonSerializer.Serialize(orderEvent));
 
+        public Task PublishOrderCompletedAsync(OrderCompletedEventDto orderEvent)
+            => PublishAsync("order.completed", JsonSerializer.Serialize(orderEvent));
+
         private async Task PublishAsync(string routingKey, string message)
         {
             var body = Encoding.UTF8.GetBytes(message);

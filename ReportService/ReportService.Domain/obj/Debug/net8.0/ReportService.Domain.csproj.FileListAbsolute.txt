@@ -1,0 +1,12 @@
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\bin\Debug\net8.0\ReportService.Domain.deps.json
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\bin\Debug\net8.0\ReportService.Domain.dll
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\bin\Debug\net8.0\ReportService.Domain.pdb
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\obj\Debug\net8.0\ReportService.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\obj\Debug\net8.0\ReportService.Domain.AssemblyInfoInputs.cache
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\obj\Debug\net8.0\ReportService.Domain.AssemblyInfo.cs
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\obj\Debug\net8.0\ReportService.Domain.csproj.CoreCompileInputs.cache
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\obj\Debug\net8.0\ReportService.Domain.sourcelink.json
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\obj\Debug\net8.0\ReportService.Domain.dll
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\obj\Debug\net8.0\refint\ReportService.Domain.dll
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\obj\Debug\net8.0\ReportService.Domain.pdb
+D:\Workspace\VNPT\Test\ReportService\ReportService.Domain\obj\Debug\net8.0\ref\ReportService.Domain.dll

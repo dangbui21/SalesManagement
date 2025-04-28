@@ -1,0 +1,16 @@
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\bin\Debug\net8.0\ReportService.Application.deps.json
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\bin\Debug\net8.0\ReportService.Application.dll
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\bin\Debug\net8.0\ReportService.Application.pdb
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\bin\Debug\net8.0\ReportService.Domain.dll
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\bin\Debug\net8.0\ReportService.Domain.pdb
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ReportService.Application.csproj.AssemblyReference.cache
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ReportService.Application.GeneratedMSBuildEditorConfig.editorconfig
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ReportService.Application.AssemblyInfoInputs.cache
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ReportService.Application.AssemblyInfo.cs
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ReportService.Application.csproj.CoreCompileInputs.cache
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ReportService.Application.sourcelink.json
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ReportSe.1AB549AE.Up2Date
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ReportService.Application.dll
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\refint\ReportService.Application.dll
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ReportService.Application.pdb
+D:\Workspace\VNPT\Test\ReportService\ReportService.Application\obj\Debug\net8.0\ref\ReportService.Application.dll
