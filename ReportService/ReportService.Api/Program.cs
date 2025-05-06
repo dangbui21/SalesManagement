@@ -6,6 +6,8 @@ using ReportService.Application.Mapping;
 using ReportService.Infrastructure.Repositories;
 using ReportService.Application.Interfaces;
 using ReportService.Domain.Interfaces;
+using ReportService.Application.Services;
+using ReportService.Infrastructure.MessageConsumers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,6 +22,9 @@ builder.Services.AddAutoMapper(typeof(ReportMappingProfile).Assembly);
 // Dependency Injection
 //builder.Services.AddScoped<IReportOrderService, ReportOrderService>();
 builder.Services.AddScoped<IReportRepository, ReportRepository>();
+builder.Services.AddScoped<IHandleOrderCompleted, OrderCompletedHandler>();
+builder.Services.AddScoped<IRevenueReportService, RevenueReportService>();
+builder.Services.AddHostedService<OrderCompletedConsumer>();
 
 // Controllers + Swagger
 builder.Services.AddControllers();

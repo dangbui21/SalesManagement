@@ -14,12 +14,25 @@ namespace ReportService.Infrastructure.Repositories
             _context = context;
         }
 
-        public async Task<ReportOrder> CreateReportOrderAsync(ReportOrder reportOrder)
+       public async Task<ReportOrder> CreateReportOrderAsync(ReportOrder reportOrder)
         {
+            var exists = await _context.ReportOrders
+                .AnyAsync(r => r.OrderId == reportOrder.OrderId);
+
+            if (exists)
+            {
+                Console.WriteLine($"[CreateReportOrderAsync] OrderId {reportOrder.OrderId} already exists. Skipping insert.");
+                return reportOrder;
+            }
+
             await _context.ReportOrders.AddAsync(reportOrder);
             await _context.SaveChangesAsync();
+
+            Console.WriteLine($"[CreateReportOrderAsync] Saved OrderId {reportOrder.OrderId} to DB.");
+
             return reportOrder;
         }
+
 
        public async Task<ReportOrder?> GetReportOrderByIdAsync(int id)
         {
@@ -54,5 +67,13 @@ namespace ReportService.Infrastructure.Repositories
             await _context.SaveChangesAsync();
             return true;
         }
+
+        public async Task<List<ReportOrder>> GetOrdersByDateRangeAsync(DateTime from, DateTime to)
+        {
+            return await _context.ReportOrders
+                .Where(r => r.PaidAt >= from && r.PaidAt < to)
+                .ToListAsync();
+        }
+
     }
 }

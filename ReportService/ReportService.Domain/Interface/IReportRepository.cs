@@ -9,6 +9,8 @@ namespace ReportService.Domain.Interfaces
         Task<List<ReportOrder>> GetAllReportOrdersAsync();
         Task<ReportOrder> UpdateReportOrderAsync(ReportOrder reportOrder);
         Task<bool> DeleteReportOrderAsync(int id);
+        Task<List<ReportOrder>> GetOrdersByDateRangeAsync(DateTime from, DateTime to);
+
     }
     
 }
