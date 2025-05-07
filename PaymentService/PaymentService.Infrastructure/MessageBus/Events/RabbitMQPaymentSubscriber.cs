@@ -44,47 +44,103 @@ namespace PaymentService.Infrastructure.MessageBus
             var consumer = new EventingBasicConsumer(_channel);
             consumer.Received += (model, ea) =>
             {
-                var body = ea.Body.ToArray();
-                var message = Encoding.UTF8.GetString(body);
-                var routingKey = ea.RoutingKey;
-
-                _logger.LogInformation("Received Payment Event: {RoutingKey} - {Message}", routingKey, message);
-
-                switch (routingKey)
+                try
                 {
-                    case "payment.created":
-                        var created = JsonSerializer.Deserialize<PaymentCreatedEventDto>(message);
-                        _logger.LogInformation("Payment Created: {@Payment}", created);
-                        break;
+                    var body = ea.Body.ToArray();
+                    var message = Encoding.UTF8.GetString(body);
+                    var routingKey = ea.RoutingKey;
+                    var deliveryTag = ea.DeliveryTag;
 
-                    case "payment.updated":
-                        var updated = JsonSerializer.Deserialize<PaymentUpdatedEventDto>(message);
-                        _logger.LogInformation("Payment Updated: {@Payment}", updated);
-                        break;
+                    _logger.LogInformation("[Payment Subscriber] Received message - DeliveryTag: {DeliveryTag}, RoutingKey: {RoutingKey}", 
+                        deliveryTag, routingKey);
+                    _logger.LogInformation("[Payment Subscriber] Message content: {Message}", message);
 
-                    case "payment.deleted":
-                        var deleted = JsonSerializer.Deserialize<PaymentDeletedEventDto>(message);
-                        _logger.LogInformation("Payment Deleted: {@Payment}", deleted);
-                        break;
+                    switch (routingKey)
+                    {
+                        case "payment.created":
+                            var created = JsonSerializer.Deserialize<PaymentCreatedEventDto>(message);
+                            if (created == null)
+                            {
+                                _logger.LogError("[Payment Subscriber] Failed to deserialize payment.created message");
+                                _channel.BasicNack(ea.DeliveryTag, false, true);
+                                return;
+                            }
+                            _logger.LogInformation("[Payment Subscriber] Processing payment.created - PaymentId: {PaymentId}, OrderId: {OrderId}", 
+                                created.PaymentId, created.OrderId);
+                            _logger.LogInformation("[Payment Subscriber] Payment Created: {@Payment}", created);
+                            break;
 
-                    case "payment.failed":
-                        var failed = JsonSerializer.Deserialize<PaymentFailedEventDto>(message);
-                        _logger.LogWarning("Payment Failed: {@Payment}", failed);
-                        break;
-                    case "payment.succeeded":  
-                        var succeeded = JsonSerializer.Deserialize<PaymentSucceededEventDto>(message);
-                        _logger.LogInformation("Payment Succeeded: {@Payment}", succeeded);
-                        break;
+                        case "payment.updated":
+                            var updated = JsonSerializer.Deserialize<PaymentUpdatedEventDto>(message);
+                            if (updated == null)
+                            {
+                                _logger.LogError("[Payment Subscriber] Failed to deserialize payment.updated message");
+                                _channel.BasicNack(ea.DeliveryTag, false, true);
+                                return;
+                            }
+                            _logger.LogInformation("[Payment Subscriber] Processing payment.updated - PaymentId: {PaymentId}", 
+                                updated.PaymentId);
+                            _logger.LogInformation("[Payment Subscriber] Payment Updated: {@Payment}", updated);
+                            break;
 
-                    default:
-                        _logger.LogWarning("Unknown Payment RoutingKey: {RoutingKey}", routingKey);
-                        break;
+                        case "payment.deleted":
+                            var deleted = JsonSerializer.Deserialize<PaymentDeletedEventDto>(message);
+                            if (deleted == null)
+                            {
+                                _logger.LogError("[Payment Subscriber] Failed to deserialize payment.deleted message");
+                                _channel.BasicNack(ea.DeliveryTag, false, true);
+                                return;
+                            }
+                            _logger.LogInformation("[Payment Subscriber] Processing payment.deleted - PaymentId: {PaymentId}", 
+                                deleted.PaymentId);
+                            _logger.LogInformation("[Payment Subscriber] Payment Deleted: {@Payment}", deleted);
+                            break;
+
+                        case "payment.failed":
+                            var failed = JsonSerializer.Deserialize<PaymentFailedEventDto>(message);
+                            if (failed == null)
+                            {
+                                _logger.LogError("[Payment Subscriber] Failed to deserialize payment.failed message");
+                                _channel.BasicNack(ea.DeliveryTag, false, true);
+                                return;
+                            }
+                            _logger.LogWarning("[Payment Subscriber] Processing payment.failed - PaymentId: {PaymentId}", 
+                                failed.PaymentId);
+                            _logger.LogWarning("[Payment Subscriber] Payment Failed: {@Payment}", failed);
+                            break;
+
+                        case "payment.succeeded":  
+                            var succeeded = JsonSerializer.Deserialize<PaymentSucceededEventDto>(message);
+                            if (succeeded == null)
+                            {
+                                _logger.LogError("[Payment Subscriber] Failed to deserialize payment.succeeded message");
+                                _channel.BasicNack(ea.DeliveryTag, false, true);
+                                return;
+                            }
+                            _logger.LogInformation("[Payment Subscriber] Processing payment.succeeded - PaymentId: {PaymentId}", 
+                                succeeded.PaymentId);
+                            _logger.LogInformation("[Payment Subscriber] Payment Succeeded: {@Payment}", succeeded);
+                            break;
+
+                        default:
+                            _logger.LogWarning("[Payment Subscriber] Unknown Payment RoutingKey: {RoutingKey}", routingKey);
+                            _channel.BasicNack(ea.DeliveryTag, false, false);
+                            return;
+                    }
+
+                    _logger.LogInformation("[Payment Subscriber] Successfully processed message - DeliveryTag: {DeliveryTag}", deliveryTag);
+                    _channel.BasicAck(ea.DeliveryTag, false);
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "[Payment Subscriber] Error processing message");
+                    _channel.BasicNack(ea.DeliveryTag, false, true);
                 }
             };
 
             _channel.BasicConsume(
                 queue: _configuration["RabbitMQ:PublishQueue"],
-                autoAck: true,
+                autoAck: false,
                 consumer: consumer
             );
 

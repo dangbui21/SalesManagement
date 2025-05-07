@@ -1,6 +1,5 @@
 using PaymentService.Domain.Interfaces;
 using PaymentService.Domain.Enums;
-using PaymentService.Application.Interfaces;
 using PaymentService.Domain.Events;
 
 namespace PaymentService.Application.Services

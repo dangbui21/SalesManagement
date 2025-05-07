@@ -11,6 +11,7 @@ namespace PaymentService.Infrastructure.Data
 
         public DbSet<Payment> Payments { get; set; }
         public DbSet<PaymentEvent> PaymentEvents { get; set; }
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -24,15 +25,26 @@ namespace PaymentService.Infrastructure.Data
                 .Property(e => e.EventType)
                 .HasConversion<int>();
   
+            // Cấu hình RefreshToken
+            modelBuilder.Entity<RefreshToken>()
+                .HasKey(r => r.Id);
+
+            modelBuilder.Entity<RefreshToken>()
+                .Property(r => r.Token)
+                .IsRequired();
+
+            modelBuilder.Entity<RefreshToken>()
+                .Property(r => r.UserId)
+                .IsRequired();
 
             base.OnModelCreating(modelBuilder);
             
-             // Định nghĩa quan hệ 1-n giữa Payment và PaymentEvent
+            // Định nghĩa quan hệ 1-n giữa Payment và PaymentEvent
             modelBuilder.Entity<Payment>()
-            .HasMany(p => p.PaymentEvents)
-            .WithOne(pe => pe.Payment)
-            .HasForeignKey(pe => pe.PaymentId)
-            .OnDelete(DeleteBehavior.Cascade);
+                .HasMany(p => p.PaymentEvents)
+                .WithOne(pe => pe.Payment)
+                .HasForeignKey(pe => pe.PaymentId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

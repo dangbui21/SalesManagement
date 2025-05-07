@@ -1,7 +1,7 @@
 using System;
 using PaymentService.Domain.Enums;
 
-namespace PaymentService.Application.DTOs
+namespace PaymentService.Application.DTOs.Payment
 {
     public class PaymentDto
     {

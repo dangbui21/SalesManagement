@@ -166,3 +166,12 @@ D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\Micros
 D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\System.Diagnostics.EventLog.dll
 D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.Messages.dll
 D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\runtimes\win\lib\net8.0\System.Diagnostics.EventLog.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\Microsoft.Bcl.Memory.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+D:\Workspace\VNPT\Test\PaymentService\PaymentService.Api\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll

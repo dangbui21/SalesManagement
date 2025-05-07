@@ -1,0 +1,12 @@
+using System;
+
+namespace PaymentService.Domain.Events
+{
+    public class PaymentSucceededEvent
+    {
+        public int PaymentId { get; set; }
+        public int OrderId { get; set; }
+        public decimal Amount { get; set; }
+        public DateTime PaidAt { get; set; }
+    }
+} 

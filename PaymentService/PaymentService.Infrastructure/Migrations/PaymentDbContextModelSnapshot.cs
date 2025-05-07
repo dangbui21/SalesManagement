@@ -69,7 +69,50 @@ namespace PaymentService.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("PaymentId");
+
                     b.ToTable("PaymentEvents");
+                });
+
+            modelBuilder.Entity("PaymentService.Domain.Entities.RefreshToken", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<DateTime>("ExpiryDate")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<bool>("IsRevoked")
+                        .HasColumnType("boolean");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RefreshTokens");
+                });
+
+            modelBuilder.Entity("PaymentService.Domain.Entities.PaymentEvent", b =>
+                {
+                    b.HasOne("PaymentService.Domain.Entities.Payment", "Payment")
+                        .WithMany("PaymentEvents")
+                        .HasForeignKey("PaymentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Payment");
+                });
+
+            modelBuilder.Entity("PaymentService.Domain.Entities.Payment", b =>
+                {
+                    b.Navigation("PaymentEvents");
                 });
 #pragma warning restore 612, 618
         }

@@ -30,4 +30,9 @@ namespace PaymentService.Domain.Events
     {
         public int OrderId { get; set; }
     }
+
+    public class OrderCompletedEventDto
+    {
+        public int OrderId { get; set; }
+    }
 }

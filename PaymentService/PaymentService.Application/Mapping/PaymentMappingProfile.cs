@@ -1,8 +1,9 @@
 using AutoMapper;
 using PaymentService.Domain.Entities;
 using PaymentService.Domain.Enums;
-using PaymentService.Application.DTOs;
+using PaymentService.Application.DTOs.Payment;
 using System;
+using PaymentService.Application.DTOs;
 
 namespace PaymentService.Application.Mapping
 {

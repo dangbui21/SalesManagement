@@ -1,9 +1,11 @@
 using AutoMapper;
-using PaymentService.Application.DTOs;
+using PaymentService.Application.DTOs.Payment;
 using PaymentService.Application.Interfaces;
 using PaymentService.Domain.Entities;
 using PaymentService.Domain.Interfaces;
 using PaymentService.Domain.Events;
+using PaymentService.Domain.Enums;
+using Microsoft.Extensions.Logging;
 
 namespace PaymentService.Application.Services
 {
@@ -12,12 +14,21 @@ namespace PaymentService.Application.Services
         private readonly IPaymentRepository _repository;
         private readonly IMapper _mapper;
         private readonly IMessageBusPublisher _messageBus;
+        private readonly PaymentNotificationService _notificationService;
+        private readonly ILogger<PaymentServiceImpl> _logger;
 
-        public PaymentServiceImpl(IPaymentRepository repository, IMapper mapper, IMessageBusPublisher messageBus)
+        public PaymentServiceImpl(
+            IPaymentRepository repository, 
+            IMapper mapper, 
+            IMessageBusPublisher messageBus,
+            PaymentNotificationService notificationService,
+            ILogger<PaymentServiceImpl> logger)
         {
             _repository = repository;
             _mapper = mapper;
             _messageBus = messageBus;
+            _notificationService = notificationService;
+            _logger = logger;
         }
 
         public async Task<IEnumerable<PaymentDto>> GetAllPaymentDtosAsync()
@@ -99,25 +110,35 @@ namespace PaymentService.Application.Services
             var payment = payments.FirstOrDefault();
             if (payment == null) return false;
 
-            // Cập nhật trạng thái
-            payment.Status = Domain.Enums.PaymentStatus.Succeeded;
+            payment.Status = PaymentStatus.Succeeded;
             payment.ProcessedAt = DateTime.UtcNow;
-
             await _repository.UpdatePaymentAsync(payment);
 
-            // Gửi event thành công
+            // Bắt đầu gửi thông báo định kỳ
             var eventDto = new PaymentSucceededEventDto
             {
                 PaymentId = payment.Id,
                 OrderId = payment.OrderId,
                 Amount = payment.Amount,
-                PaidAt = payment.ProcessedAt,
-                Status = "Succeeded"
+                PaidAt = payment.ProcessedAt
             };
-            await _messageBus.PublishPaymentSucceededAsync(eventDto);
 
+            _notificationService.StartSendingNotifications(orderId, eventDto);
             return true;
         }
-        
+
+        public async Task<bool> MarkPaymentAsCompletedAsync(int orderId)
+        {
+            var payments = await _repository.GetPaymentsByOrderIdAsync(orderId);
+            var payment = payments.FirstOrDefault();
+            if (payment == null) return false;
+
+            payment.Status = PaymentStatus.Succeeded;
+            await _repository.UpdatePaymentAsync(payment);
+
+            // Dừng gửi thông báo định kỳ
+            _notificationService.StopSendingNotifications(orderId);
+            return true;
+        }
     }
 }

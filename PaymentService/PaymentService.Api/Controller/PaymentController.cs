@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using PaymentService.Application.DTOs;
+using PaymentService.Application.DTOs.Payment;
 using PaymentService.Application.Interfaces;
 using AutoMapper;
 using PaymentService.Domain.Entities;

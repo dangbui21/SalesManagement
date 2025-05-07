@@ -9,10 +9,12 @@
       "PaymentService.Infrastructure/1.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Hosting": "9.0.4",
+          "Microsoft.Extensions.Options": "9.0.4",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "9.0.4",
           "PaymentService.Application": "1.0.0",
           "PaymentService.Domain": "1.0.0",
-          "RabbitMQ.Client": "6.8.0"
+          "RabbitMQ.Client": "6.8.0",
+          "System.IdentityModel.Tokens.Jwt": "8.9.0"
         },
         "runtime": {
           "PaymentService.Infrastructure.dll": {}
@@ -38,6 +40,14 @@
           "lib/netstandard2.1/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {
             "assemblyVersion": "12.0.0.0",
             "fileVersion": "12.0.1.0"
+          }
+        }
+      },
+      "Microsoft.Bcl.Memory/9.0.0": {
+        "runtime": {
+          "lib/net8.0/Microsoft.Bcl.Memory.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.24.52809"
           }
         }
       },
@@ -469,6 +479,49 @@
           }
         }
       },
+      "Microsoft.IdentityModel.Abstractions/8.9.0": {
+        "runtime": {
+          "lib/net8.0/Microsoft.IdentityModel.Abstractions.dll": {
+            "assemblyVersion": "8.9.0.0",
+            "fileVersion": "8.9.0.60424"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.JsonWebTokens/8.9.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "8.9.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll": {
+            "assemblyVersion": "8.9.0.0",
+            "fileVersion": "8.9.0.60424"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Logging/8.9.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Abstractions": "8.9.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.IdentityModel.Logging.dll": {
+            "assemblyVersion": "8.9.0.0",
+            "fileVersion": "8.9.0.60424"
+          }
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/8.9.0": {
+        "dependencies": {
+          "Microsoft.Bcl.Memory": "9.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.4",
+          "Microsoft.IdentityModel.Logging": "8.9.0"
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.IdentityModel.Tokens.dll": {
+            "assemblyVersion": "8.9.0.0",
+            "fileVersion": "8.9.0.60424"
+          }
+        }
+      },
       "Npgsql/9.0.3": {
         "dependencies": {
           "Microsoft.Extensions.Logging.Abstractions": "9.0.4"
@@ -535,6 +588,18 @@
           }
         }
       },
+      "System.IdentityModel.Tokens.Jwt/8.9.0": {
+        "dependencies": {
+          "Microsoft.IdentityModel.JsonWebTokens": "8.9.0",
+          "Microsoft.IdentityModel.Tokens": "8.9.0"
+        },
+        "runtime": {
+          "lib/net8.0/System.IdentityModel.Tokens.Jwt.dll": {
+            "assemblyVersion": "8.9.0.0",
+            "fileVersion": "8.9.0.60424"
+          }
+        }
+      },
       "System.IO.Pipelines/9.0.4": {
         "runtime": {
           "lib/net8.0/System.IO.Pipelines.dll": {
@@ -577,6 +642,7 @@
         "dependencies": {
           "AutoMapper": "12.0.1",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Microsoft.Extensions.Logging.Abstractions": "9.0.4",
           "PaymentService.Domain": "1.0.0"
         },
         "runtime": {
@@ -609,6 +675,13 @@
       "sha512": "sha512-+g/K+Vpe3gGMKGzjslMOdqNlkikScDjWfVvmWTayrDHaG/n2pPmFBMa+jKX1r/h6BDGFdkyRjAuhFE3ykW+r1g==",
       "path": "automapper.extensions.microsoft.dependencyinjection/12.0.1",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512"
+    },
+    "Microsoft.Bcl.Memory/9.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bTUtGfpGyJnohQzjdXbtc7MqNzkv7CWUSRz54+ucNm0i32rZiIU0VdVPHDBShOl1qhVKRjW8mnEBz3d2vH93tQ==",
+      "path": "microsoft.bcl.memory/9.0.0",
+      "hashPath": "microsoft.bcl.memory.9.0.0.nupkg.sha512"
     },
     "Microsoft.CSharp/4.7.0": {
       "type": "package",
@@ -848,6 +921,34 @@
       "path": "microsoft.extensions.primitives/9.0.4",
       "hashPath": "microsoft.extensions.primitives.9.0.4.nupkg.sha512"
     },
+    "Microsoft.IdentityModel.Abstractions/8.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-b/87S+lb86U7Ns7xgTKnqql6XGNr8hBE+k0rj5sRWwXeJe6uA+3mSjvpZ9GoQo3cB9zlwzcbGBU8KM44qX0t1g==",
+      "path": "microsoft.identitymodel.abstractions/8.9.0",
+      "hashPath": "microsoft.identitymodel.abstractions.8.9.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.JsonWebTokens/8.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QcNC57hJLc6LIcy2PTYlD8iRBQBm6bqPKbCjsRYWlp7QTyJisF0ImUWaa3mx6wWaS1upwYneYVPiIiNSlAy16g==",
+      "path": "microsoft.identitymodel.jsonwebtokens/8.9.0",
+      "hashPath": "microsoft.identitymodel.jsonwebtokens.8.9.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Logging/8.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rswvH4ZANbFsJYEn+PGEOj7nkkBRjnsb7LcYGAS16VUJpSeKULLeYSy/7SK6jLO1WTT12xqdeL4mj3dYT7GdoQ==",
+      "path": "microsoft.identitymodel.logging/8.9.0",
+      "hashPath": "microsoft.identitymodel.logging.8.9.0.nupkg.sha512"
+    },
+    "Microsoft.IdentityModel.Tokens/8.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qK6kW5qZvDj7E5RLWQ9gzJxQe5GUz7+7bXrLQQydSDF9hTf5Ip2qHuAQW3Fg9GND6jkjTr7IXAZFmBHadNQi4Q==",
+      "path": "microsoft.identitymodel.tokens/8.9.0",
+      "hashPath": "microsoft.identitymodel.tokens.8.9.0.nupkg.sha512"
+    },
     "Npgsql/9.0.3": {
       "type": "package",
       "serviceable": true,
@@ -882,6 +983,13 @@
       "sha512": "sha512-getRQEXD8idlpb1KW56XuxImMy0FKp2WJPDf3Qr0kI/QKxxJSftqfDFVo0DZ3HCJRLU73qHSruv5q2l5O47jQQ==",
       "path": "system.diagnostics.eventlog/9.0.4",
       "hashPath": "system.diagnostics.eventlog.9.0.4.nupkg.sha512"
+    },
+    "System.IdentityModel.Tokens.Jwt/8.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-7Pu9UjF1+so0s8zgzcIxSxbRQoiM2DMdwazVGmNptX3O6gDfMyeWZBd/Zn6VueDteN0ZTHw2acsf6+mAe8UpMw==",
+      "path": "system.identitymodel.tokens.jwt/8.9.0",
+      "hashPath": "system.identitymodel.tokens.jwt.8.9.0.nupkg.sha512"
     },
     "System.IO.Pipelines/9.0.4": {
       "type": "package",
